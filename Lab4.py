@@ -31,8 +31,7 @@ class Poly:
         return ' + '.join(terms).replace(' + -', ' - ')
     
     def __neg__(self):
-        # Здесь будет реализация метода
-        pass
+        return Poly({exp: -coef for exp, coef in self.coef_dict.items()})
     
     def __add__(self, other):
         # Здесь будет реализация метода
