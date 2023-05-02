@@ -3,8 +3,32 @@ class Poly:
         self.coef_dict = coef_dict
     
     def __repr__(self):
-        # Здесь будет реализация метода
-        pass
+        terms = []
+        for exp, coef in sorted(self.coef_dict.items(), reverse=True):
+            if coef == 0:
+                continue
+            if exp == 0:
+                term = str(coef)
+            elif exp == 1:
+                if coef == 1:
+                    term = 'x'
+                elif coef == -1:
+                    term = '-x'
+                else:
+                    term = f'{coef}x'
+            else:
+                if coef == 1:
+                    term = f'x^{exp}'
+                elif coef == -1:
+                    term = f'-x^{exp}'
+                elif coef < 0:
+                    term = f'-{-coef}x^{exp}'
+                else:
+                    term = f'{coef}x^{exp}'
+            terms.append(term)
+        if not terms:
+            return '0'
+        return ' + '.join(terms).replace(' + -', ' - ')
     
     def __neg__(self):
         # Здесь будет реализация метода
