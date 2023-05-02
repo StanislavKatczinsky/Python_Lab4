@@ -42,9 +42,8 @@
         return Poly(result)
     
     def __sub__(self, other):
-        # Здесь будет реализация метода
-        pass
-    
+        return self + (-other)
+
     def __mul__(self, other):
         # Здесь будет реализация метода
         pass
