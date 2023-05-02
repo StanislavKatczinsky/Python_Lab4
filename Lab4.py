@@ -1,4 +1,4 @@
-class Poly:
+﻿class Poly:
     def __init__(self, coef_dict):
         self.coef_dict = coef_dict
     
@@ -34,8 +34,12 @@ class Poly:
         return Poly({exp: -coef for exp, coef in self.coef_dict.items()})
     
     def __add__(self, other):
-        # Здесь будет реализация метода
-        pass
+        result = dict(self.coef_dict)
+        for exp, coef in other.coef_dict.items():
+            result[exp] = result.get(exp, 0) + coef
+            if result[exp] == 0:
+                del result[exp]
+        return Poly(result)
     
     def __sub__(self, other):
         # Здесь будет реализация метода
